@@ -8,6 +8,7 @@ import speech_recognition as sr
 
 import time as cholo
 
+#cholohatwhite
 
 tts = gTTS('le doy la bienvenida! soy Dana, su asistente!, creada por cholohatwhite, dígame, ¿en qué le puedo servir?', lang='es')
 tts.save('h.mp3')
