@@ -37,39 +37,25 @@ print("Asistente virtual. No ocupa inteligencia artificial\n\n")
 
 playsound("h.mp3")
 
+running = True
 
-def dana():
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Microfono encendido! \n")
-        print("Puedes Hablar Ahora : \n\n")
-        print("\n\n")
-        audio = r.listen(source)
-        cholo.sleep(2)
-        try:
-            text = r.recognize_google(audio)
-            print("\n\nTu dijiste : {}".format(text))
-            playsound("s.mp3")
-            py.search(text)
+if __name__ == "__main__":
 
-        except:
-            playsound("n.mp3")
-            dana()
-
-
-r = sr.Recognizer()
-
-with sr.Microphone() as source:
-    print("Microfono encendido!\n")
-    print("Puedes Hablar Ahora : \n")
-    audio = r.listen(source)
-    cholo.sleep(2)
-    try:
-        text = r.recognize_google(audio)
-        print("Tu dijiste : {}".format(text))
-        playsound("s.mp3")
-        py.search(text)
-
-    except:
-        playsound("n.mp3")
-        dana()
+    while running:
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            print("Microfono encendido! \n")
+            print("Puedes Hablar Ahora : \n\n")
+            print("\n\n")
+            audio = r.listen(source)
+            cholo.sleep(2)
+            try:
+                text = r.recognize_google(audio)
+                print("\n\nTu dijiste : {}".format(text))
+                playsound("s.mp3")
+                py.search(text)
+            except KeyboardInterrupt:
+                exit()
+            except Exception as e:
+                playsound("n.mp3")
+                print(e)
