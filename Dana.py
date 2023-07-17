@@ -3,23 +3,21 @@ import speech_recognition as sr
 import pywhatkit as py
 from gtts import gTTS
 import time as cholo
-import os 
+import os
 
 
 if not all([os.path.exists(file) for file in ["h.mp3", "s.mp3", "n.mp3"]]):
-    tts = gTTS(
+    welcome = gTTS(
         "le doy la bienvenida! soy Dana, su asistente!, creada por cholohatwhite, dígame, ¿en qué le puedo servir?",
         lang="es",
     )
-    tts.save("h.mp3")
-
-    tts = gTTS("A sus órdenes, su búsqueda está en camino!", lang="es")
-    tts.save("s.mp3")
-
-    tts = gTTS("lo siento, ¿puede repetir por favor?", lang="es")
-    tts.save("n.mp3")
-
-print("""
+    on_search = gTTS("A sus órdenes, su búsqueda está en camino!", lang="es")
+    on_error_message = gTTS("lo siento, ¿puede repetir por favor?", lang="es")
+    welcome.save("h.mp3")
+    on_search.save("s.mp3")
+    on_error_message.save("n.mp3")
+print(
+    """
 ======================================================================                                 
  ██████████                                          
 ░░███░░░░███
